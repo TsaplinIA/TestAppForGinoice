@@ -37,13 +37,13 @@ def create_swagger_spec():
     return jsonify(spec.to_dict())
 
 
-@app.route('/sing_up')
+@app.route('/sign_up')
 def registration():
     pass
     return "registration"
 
 
-@app.route('/sing_in')
+@app.route('/sign_in')
 def login():
     pass
     return "login"
