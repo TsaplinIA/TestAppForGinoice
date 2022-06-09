@@ -26,6 +26,9 @@ spec = APISpec(
     plugins=[FlaskPlugin(), MarshmallowPlugin()]
 )
 
+bearer_scheme = {"type": "http", "scheme": "bearer", "bearerFormat": "JWT"}
+spec.components.security_scheme("bearerAuth", bearer_scheme)
+
 
 @app.route('/')
 def default():
