@@ -1,0 +1,7 @@
+marshmallow==3.16.0
+peewee==3.14.10
+Flask==2.1.2
+apispec==5.2.2
+PyJWT==2.4.0
+apispec_webframeworks==0.5.2
+flask-swagger-ui==4.11.1
