@@ -37,5 +37,23 @@ def create_swagger_spec():
     return jsonify(spec.to_dict())
 
 
+@app.route('/sing_up')
+def registration():
+    pass
+    return "registration"
+
+
+@app.route('/sing_in')
+def login():
+    pass
+    return "login"
+
+
+@app.route('/user')
+def user():
+    pass
+    return "user"
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
