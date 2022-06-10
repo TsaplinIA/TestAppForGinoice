@@ -9,8 +9,14 @@ class RegisterRequestSchema(Schema):
     password = fields.Str(required=True)
 
 
+class LoginRequestSchema(Schema):
+    email = fields.Email(required=True)
+    password = fields.Str(required=True)
+
+
 class ErrorSchema(Schema):
     error = fields.Str()
+
 
 class SignatureSchema(Schema):
     user_id = fields.Int()
