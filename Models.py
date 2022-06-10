@@ -1,6 +1,17 @@
 from marshmallow import Schema, fields
 
 
+class RegisterRequestSchema(Schema):
+    name = fields.Str(required=True)
+    surname = fields.Str(required=True)
+    email = fields.Email(required=True)
+    eth_address = fields.Str(required=True)
+    password = fields.Str(required=True)
+
+
+class ErrorSchema(Schema):
+    error = fields.Str()
+
 class SignatureSchema(Schema):
     user_id = fields.Int()
     signature = fields.Str()
