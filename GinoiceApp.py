@@ -40,11 +40,6 @@ app.config.update({
 app.template_folder = "./static"
 
 
-@app.route('/')
-def default():
-    return redirect(SWAGGER_URL)
-
-
 @app.route('/sign_up', methods=['POST'])
 def registration(**kwargs):
     """
@@ -52,8 +47,6 @@ def registration(**kwargs):
     post:
         summary: Registration
         description: Registration new user
-        security:
-            bearerAuth: []
         responses:
             200:
                 description: Return id and signature
@@ -91,8 +84,6 @@ def login():
     post:
         summary: Login
         description: Get token for authentication
-        security:
-            bearerAuth: []
         responses:
             200:
                 description: Return id and signature
@@ -157,6 +148,11 @@ with app.test_request_context():
     spec.path(view=registration)
     spec.path(view=login)
     spec.path(view=user)
+
+
+@app.route('/')
+def default():
+    return redirect(SWAGGER_URL)
 
 
 @app.route("/swagger.json")
