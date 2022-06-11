@@ -136,4 +136,9 @@
 - Database: `SQLite 3`
 - ORM: `PeeWee`
 - Cryptography: `Web3`, `bcrypt`   
-Все зависимости описаны в `requirements.txt` 
+Все зависимости описаны в `requirements.txt`
+
+Примечание: Для работы подписи нужно в файле Config.py, заменить строку, отвечающую за приватный ключ.  
+`ETH_PRIVATE_KEY = "PUT_HERE_YOUR_PRIVATE_KEY"` =>
+`ETH_PRIVATE_KEY = "0d2dacbdc...970a0"`  
+Для запуска сервера - запустить `GinoiceApp.py`
