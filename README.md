@@ -126,3 +126,14 @@
     >>>signature
     '0xd46f930774942cd133304705cf20c0a44c02b13f470d3bd515f894d3570a86e269572dcf0b3139fb1c8bc1d0e3dd83f48b488b1547c1d875f506cb6a22a7a87a1b'
 
+# Итого
+Помимо указанных выше проблем, всё прошло относительно гладко.   
+
+Итоговый стек: 
+- ЯП:`Python3.10`
+- WebFramework: `Flask` 
+- OAI auto documentation: `apispec` + `marshmallow` + `flask-swagger-ui`
+- Database: `SQLite 3`
+- ORM: `PeeWee`
+- Cryptography: `Web3`, `bcrypt`   
+Все зависимости описаны в `requirements.txt` 
