@@ -6,3 +6,4 @@ apispec-webframeworks==0.5.2
 peewee==3.14.10
 PyJWT==2.4.0
 web3==5.29.2
+bcrypt==3.2.2
