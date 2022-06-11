@@ -96,3 +96,33 @@
 
 Я попытался разобраться в чём проблема, но так как потратил на такую простую задачу, как составление "скелета" API, много ~~ОЧЕНЬ УЖ МНОГО~~ времени, решил остановиться на __"полуавтомате"__.
 Для этого, в итоге, использовал стандартный `apispec` и `marshmallow`.   
+
+И даже после этого "с ходу" всё не заработало.  
+По какой-то причине, даже с указанной версией OAI, apispec генерировал не совсем правильный json(конкретно в месте авторизации), из-за чего, при попытке отправить запрос с токеном авторизации происходила бесконечная загрузка(Запрос даже не приходил на сервер). 
+Пока исправил этот момент "вручную"
+
+    @app.route("/swagger.json")
+    def swagger():
+        file = json.dumps(spec.to_dict(), indent=2)
+        fixed_file = re.sub(r"{\s*\"bearerAuth\":\s*\[\]\s*\}", "[{\n\"bearerAuth\": []\n}]", file)
+        return fixed_file
+
+# Странность в получении подписи
+У меня получилось повторить указанную в ТЗ цепочку, не используя адрес ETH-кошелька, что странновато. Возможно я где-то ошибся, но тестовые данные сходятся.
+
+    from web3.auto import w3
+    from eth_account.messages import defunct_hash_message
+    import Config
+
+    def get_signature(id: int):
+        hash = w3.solidityKeccak(['uint256'], [id])
+        ethHash = defunct_hash_message(hash)
+        signed_message = w3.eth.account.signHash(ethHash, Config.ETH_PRIVATE_KEY)
+        signature = signed_message.signature
+        return signature.hex()
+
+
+    >>>signature = get_signature(123)
+    >>>signature
+    '0xd46f930774942cd133304705cf20c0a44c02b13f470d3bd515f894d3570a86e269572dcf0b3139fb1c8bc1d0e3dd83f48b488b1547c1d875f506cb6a22a7a87a1b'
+
