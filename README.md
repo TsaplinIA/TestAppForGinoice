@@ -141,4 +141,4 @@
 Примечание: Для работы подписи нужно в файле Config.py, заменить строку, отвечающую за приватный ключ.  
 `ETH_PRIVATE_KEY = "PUT_HERE_YOUR_PRIVATE_KEY"` =>
 `ETH_PRIVATE_KEY = "0d2dacbdc...970a0"`  
-Для запуска сервера - запустить `GinoiceApp.py`
+Для запуска сервера - запустить `GinoiceApp.py`, SwaggerUi по адрессу `http://127.0.0.1:5000/docs/`
